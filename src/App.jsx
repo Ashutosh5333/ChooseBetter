@@ -19,6 +19,13 @@ const App = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("");
   const focusRefs = useRef([]);
+  const comparisonRef = useRef();
+
+  useEffect(() => {
+    if (selectedProductIds.length >= 2 && window.innerWidth < 768) {
+      comparisonRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedProductIds]);
 
   //  console.log("products=====>",products)
   const brandOptions = [...new Set(products.map((p) => p.brand))];
@@ -83,12 +90,12 @@ const App = () => {
           </h1>
         </nav>
 
-        <main className={`mx-auto  px-2
+        <main
+          className={`mx-auto  px-2
           ${
-            selectedProductIds.length >= 2
-              ? "sm:px-2"
-              : "sm:px-6"
-          }  lg:px-8 py-4`}>
+            selectedProductIds.length >= 2 ? "sm:px-2" : "sm:px-6"
+          }  lg:px-8 py-4`}
+        >
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
@@ -138,10 +145,18 @@ const App = () => {
                   </button>
                 </div>
 
-                <ComparisonView
+                {/* <ComparisonView
                   products={productsToCompare}
                   onRemove={handleRemoveFromComparison}
-                />
+                /> */}
+                {selectedProductIds.length >= 2 && (
+                  <div ref={comparisonRef}>
+                    <ComparisonView
+                      products={productsToCompare}
+                      onRemove={handleRemoveFromComparison}
+                    />
+                  </div>
+                )}
               </section>
             )}
           </div>
