@@ -24,7 +24,6 @@ const App = () => {
   const brandOptions = [...new Set(products.map((p) => p.brand))];
 
   // Handle search/filter logic based on fetched products
-
   useEffect(() => {
     if (products.length > 0) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();
