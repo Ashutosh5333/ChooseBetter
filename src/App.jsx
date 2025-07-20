@@ -83,7 +83,12 @@ const App = () => {
           </h1>
         </nav>
 
-        <main className="mx-auto  px-2 sm:px-6 lg:px-8 py-4">
+        <main className={`mx-auto  px-2
+          ${
+            selectedProductIds.length >= 2
+              ? "sm:px-2"
+              : "sm:px-6"
+          }  lg:px-8 py-4`}>
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}

@@ -44,15 +44,17 @@ const ProductCard = ({
       <img
         src={image}
         alt={name}
-        className="w-28 h-28 object-contain mb-1 rounded-md "
+        className={` ${
+          selectedProductIds.length >= 2 ? "w-24 h-24" : "w-28 h-28 mb-1"
+        } object-contain  rounded-md `}
       />
 
       <h3
         className={`${
           selectedProductIds.length >= 2
-            ? "text-ellipsis  text-wrap"
-            : "md:grid-cols-3 lg:grid-cols-4"
-        } text-xs sm:text-sm font-semibold text-center mb-1
+            ? "text-ellipsis  text-wrap text-xs"
+            : "sm:text-sm"
+        } text-xs  font-semibold text-center mb-1
          text-gray-800 dark:text-gray-100 line-clamp-2 min-h-[3rem]`}
         title={name}
       >
