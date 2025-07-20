@@ -126,15 +126,16 @@ const ComparisonTable = ({ products, onRemove }) => {
   ];
 
   return (
-    <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow">
-      <h2 className="text-xl font-bold mb-4">🆚 Product Comparison</h2>
+    <div className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow">
+      <h2 className="text-lg sm:text-xl font-bold mb-4">🆚 Product Comparison</h2>
+      
       <div className="overflow-auto">
         <table className="min-w-full table-auto border border-gray-300 dark:border-gray-700 text-sm">
           <thead className="bg-gray-100 dark:bg-gray-700">
             <tr>
-              <th className="p-3 text-left">Attribute</th>
+              <th className="p-3 text-xs sm:text-sm  text-left">Attribute</th>
               {products.map((p) => (
-                <th key={p.id} className="p-3 text-left">
+                <th key={p.id} className="p-2 text-xs sm:text-sm sm:p-3 text-left">
                   {p.name}
                 </th>
               ))}
@@ -142,15 +143,15 @@ const ComparisonTable = ({ products, onRemove }) => {
           </thead>
           <tbody className="divide-y dark:divide-gray-700">
             <tr>
-              <td className="p-3 font-medium">Price</td>
+              <td className="p-3 text-xs sm:text-sm">Price</td>
               {products.map((p) => (
-                <td key={p.id} className="p-3">
+                <td key={p.id} className="p-3 text-xs sm:text-sm">
                   ${p.price}
                 </td>
               ))}
             </tr>
             <tr>
-              <td className="p-3 font-medium">Brand</td>
+              <td className="p-3 text-xs sm:text-sm">Brand</td>
               {products.map((p) => (
                 <td key={p.id} className="p-3">
                   {p.brand}
@@ -159,7 +160,7 @@ const ComparisonTable = ({ products, onRemove }) => {
             </tr>
             {allFeatureNames.map((featureName) => (
               <tr key={featureName}>
-                <td className="p-3 font-medium">{featureName}</td>
+                <td className="p-3 text-xs sm:text-sm">{featureName}</td>
                 {products.map((product) => {
                   const val =
                     product.features.find((f) => f.name === featureName)
@@ -181,7 +182,8 @@ const ComparisonTable = ({ products, onRemove }) => {
       <div className="mt-6 text-center">
         <button
           onClick={() => setModalOpen(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-full transition"
+          className="bg-yellow-500 hover:bg-yellow-600 
+          text-white font-semibold px-5 py-2 rounded-full transition"
         >
           View Detailed Cards
         </button>

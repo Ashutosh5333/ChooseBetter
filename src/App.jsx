@@ -78,15 +78,13 @@ const App = () => {
        dark:bg-gray-900 text-gray-900 dark:text-gray-100 
        transition-colors duration-300"
       >
-        {/* <header className="bg-blue-600 dark:bg-blue-800 text-white p-2 shadow-md flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Product Comparator</h1>
-        </header> */}
         <nav className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md p-4">
-          <h1 className="text-2xl font-semibold">🛍️ Product Comparison</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold">
+            🛍️ Product Comparison
+          </h1>
         </nav>
 
-        <main className=" mx-auto  px-4 sm:px-6 lg:px-8 py-4">
-          {/* <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
+        <main className="mx-auto  px-2 sm:px-6 lg:px-8 py-4">
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
@@ -120,11 +118,11 @@ const App = () => {
 
             {productsToCompare.length >= 2 && (
               <section
-                className="mt-8   dark:bg-gray-800 rounded-lg p-2 md:w-[50%]
+                className="mt-8  dark:bg-gray-800 rounded-lg p-1 lg:p-2 md:w-[50%]
                 "
               >
                 <div className="flex justify-between py-1 mb-8">
-                  <h2 className="text-2xl font-semibold  items-center  ">
+                  <h2 className="text-xl sm:text-2xl font-semibold  items-center  ">
                     Product Comparison
                   </h2>
                   <button

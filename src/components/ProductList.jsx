@@ -27,7 +27,7 @@ const ProductList = ({
         selectedProductIds.length >= 2
           ? "md:grid-cols-2"
           : "md:grid-cols-3 lg:grid-cols-4"
-      } gap-6 p-4`}
+      } gap-4 lg:gap-6 p-2 xl:p-4`}
     >
       {products.map((product, index) => (
         <motion.div
@@ -41,6 +41,7 @@ const ProductList = ({
             isSelected={selectedProductIds.includes(product.id)}
             onToggleCompare={onToggleCompare}
             maxSelectedReached={maxSelectedReached}
+            selectedProductIds={selectedProductIds}
           />
         </motion.div>
       ))}

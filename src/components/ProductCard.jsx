@@ -5,6 +5,7 @@ const ProductCard = ({
   isSelected,
   onToggleCompare,
   maxSelectedReached,
+  selectedProductIds,
 }) => {
   const { id, name, brand, image, price } = product;
   const buttonText = isSelected ? "Remove from Compare" : "Add to Compare";
@@ -43,16 +44,20 @@ const ProductCard = ({
       <img
         src={image}
         alt={name}
-        className="w-28 h-28 object-contain mb-4 rounded-md"
+        className="w-28 h-28 object-contain mb-1 rounded-md "
       />
 
       <h3
-        className="text-sm font-semibold text-center mb-1 text-gray-800 dark:text-gray-100 line-clamp-2 h-[3rem]"
+        className={`${
+          selectedProductIds.length >= 2
+            ? "text-ellipsis  text-wrap"
+            : "md:grid-cols-3 lg:grid-cols-4"
+        } text-xs sm:text-sm font-semibold text-center mb-1
+         text-gray-800 dark:text-gray-100 line-clamp-2 min-h-[3rem]`}
         title={name}
       >
         {name}
       </h3>
-
       <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">{brand}</p>
       <p className="text-lg font-bold text-blue-700 dark:text-blue-400 mb-4">
         ${price.toFixed(2)}
@@ -60,7 +65,7 @@ const ProductCard = ({
 
       <button
         onClick={() => onToggleCompare(id)}
-        className={`w-full py-2 px-4 text-white font-semibold 
+        className={`w-full py-2 px-4 text-xs sm:text-sm text-white font-semibold 
         rounded-lg transition-all duration-200
           ${buttonClasses}
           ${
